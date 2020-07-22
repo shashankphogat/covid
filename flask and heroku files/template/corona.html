@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<style>
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  height:30%;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,1.2,1.2);
+  transition: 0.3s;
+  width: 75%;
+  border-radius: 5px;
+  text-align: left;
+  margin: 0 auto;
+        float: none;
+        margin-bottom: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+.container {
+  padding: 2px 18px;
+}
+</style>
+
+<body>
+<header class="text-gray-700 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-teal-500 rounded-full" viewBox="0 0 24 24">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+      </svg>
+      <span class="ml-3 text-xl">COVID-19 Patients Classifier On The Basis Of Severity</span>
+    </a>
+    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+      <a class="mr-5 hover:text-gray-900">First Link</a>
+      <a class="mr-5 hover:text-gray-900">Second Link</a>
+      <a class="mr-5 hover:text-gray-900">Third Link</a>
+      <a class="mr-5 hover:text-gray-900">Fourth Link</a>
+    </nav>
+  </div>
+</header>
+<hr>
+<br><br><br><br>
+
+<section style="font-size:20px;">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1 style="color:#20b2aa;font-size:50px;font-weight: bold;" class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Know Your Severity</h1>
+     <br> <br>
+      <div class="card">
+  <div class="container">
+    <br>
+      <p style="color:black;font-size:25px;font-weight: bold;" class="lg:w-2/3 mx-auto leading-relaxed text-base">Answer The Following Few Questions In Yes Or No. </p>
+    <br><h4 style="color:red;" align="center"><b>{{pred2}}</b></h4>
+          <br>
+    </div>
+    <div class="lg:w-1/2 md:w-2/3 mx-auto">
+      <div class="flex flex-wrap -m-2">
+        <div class="p-2 w-full">
+
+<form action="/output/" method="POST">
+ <p>(1)Do you have any of the following sign symptoms?</p><br>
+    <font size="3" face="Roboto">
+  <table style="width:40% ;border:2px solid grey;
+  border-radius= 4px;" align="left">
+  <tr>
+    <td>Fever</td>
+  </tr>
+  <tr>
+    <td>Tiredness</td>
+  </tr>
+  <tr>
+    <td>Dry Cough</td>
+  </tr>
+  <tr>
+    <td>Chills</td>
+  </tr>
+   <tr>
+    <td>Muscle Aches</td>
+  </tr>
+   <tr>
+    <td>Vomiting And Nausea</td>
+  </tr>
+   <tr>
+    <td>Diarrhea</td>
+  </tr>
+   <tr>
+    <td>Headache</td>
+  </tr>
+   <tr>
+    <td>Sore Throat</td>
+   </tr>
+    <tr>
+     <td>Lost Of Taste And Smell</td>
+    </tr>
+  </table>
+  </font>
+     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+  <input type="radio" id="YES" name="sign" value="1">
+  <label for="YES">YES</label><br>
+  <input type="radio" id="NO" name="sign" value="0">
+  <label for="NO">NO</label><br>
+
+
+  <br><br><br>
+   <p>(2) Is your age above 50?</p><br>
+  <input type="radio" id="YES" name="age" value="1">
+  <label for="YES">YES</label><br>
+  <input type="radio" id="NO" name="age" value="0">
+  <label for="NO">NO</label><br>
+  <br><br>
+  <br>
+   <p>(3)Do you experience high blood pressure?</p><br>
+  <input type="radio" id="YES" name="hypertension" value="1">
+  <label for="YES">YES</label><br>
+  <input type="radio" id="NO" name="hypertension" value="0">
+  <label for="NO">NO</label><br>
+  <br><br>
+  <br>
+   <p>(4)Do you have diabetes?</p><br>
+  <input type="radio" id="YES" name="diabetes" value="1">
+  <label for="YES">YES</label><br>
+  <input type="radio" id="NO" name="diabetes" value="0">
+  <label for="NO">NO</label><br>
+  <br><br>
+  <br>
+   <p>(5)Do you have any coronary heart disease?</p><br>
+  <input type="radio" id="YES" name="heart" value="1">
+  <label for="YES">YES</label><br>
+  <input type="radio" id="NO" name="heart" value="0">
+  <label for="NO">NO</label><br>
+
+  <br><br>
+  <br>
+   <p>(6) Are you having persistent chest pain ?</p><br>
+  <input type="radio" id="YES" name="chest" value="1">
+  <label for="YES">YES</label><br>
+  <input type="radio" id="NO" name="chest" value="0">
+  <label for="NO">NO</label><br>
+  <br><br>
+  <br>
+   <p>(7)Is your face or lips appearing blue?</p><br>
+  <input type="radio" id="YES" name="blue" value="1">
+  <label for="YES">YES</label><br>
+  <input type="radio" id="NO" name="blue" value="0">
+  <label for="NO">NO</label><br>
+  <br><br>
+  <br>
+   <p>(8) Are you having trouble in staying awake Or the patient is fainting?</p><br>
+  <input type="radio" id="YES" name="faint" value="1">
+  <label for="YES">YES</label><br>
+  <input type="radio" id="NO" name="faint" value="0">
+  <label for="NO">NO</label><br>
+  <br><br>
+  <br>
+   <p>(9) Are you having trouble in breathing?</p><br>
+  <input type="radio" id="YES" name="breathing" value="1">
+  <label for="YES">YES</label><br>
+  <input type="radio" id="NO" name="breathing" value="0">
+  <label for="NO">NO</label><br>
+
+  <br><br>
+  <br>
+   <p>(10) Do you have any serious underlying problem Or chronic disease except COVID right now Or ur age is 70 or more ?</p><br>
+  <input type="radio" id="YES" name="chronic" value="1">
+  <label for="YES">YES</label><br>
+  <input type="radio" id="NO" name="chronic" value="0">
+  <label for="NO">NO</label><br>
+  <br><br>
+  <br>
+   <p>(11) Are you having very high fever?</p><br>
+  <input type="radio" id="YES" name="fever" value="1">
+  <label for="YES">YES</label><br>
+  <input type="radio" id="NO" name="fever" value="0">
+  <label for="NO">NO</label><br>
+  <br><br>
+  <br>
+   <div class="flex justify-center">
+            <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">SUBMIT</button>
+        </div>
+  <br><br>
+
+</form>
+           </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+</body>
+</html>
